@@ -81,15 +81,15 @@ template의 내용을 변경하려면 [mustache.js 깃허브](https://github.com
 
 ****
 
-3. 아쉬운 점과 시행착오
-- mustache 문법의 한계점
+# 3. 아쉬운 점과 시행착오
+### mustache 문법의 한계점
   - 아직 내가 못찾은건지 잘 모르겠는데 다양한 문법이 지원되지 않아 구현의 한계가 있음 
-- 파라미터를 모두 하나의 객체로 구현하도록 템플릿을 만들었음
+### 파라미터를 모두 하나의 객체로 구현하도록 템플릿을 만들었음
   - 파라미터가 하나도 없는 경우 중괄호를 삭제하는 후처리 필요
-- API 코드 생성 이후에 다듬어야 함
+### API 코드 생성 이후에 다듬어야 함
   - url path 수정
   - api instance 수정
-- 연계 할 JSON파일의 valid가 필요
-- _delete 코드가 나타남
+### 연계 할 JSON파일의 valid가 필요
+### _delete 코드가 나타남
   - generate의 script에 `--reserved-words-mappings delete=delete` 코드 옵션을 추가한다.
 
