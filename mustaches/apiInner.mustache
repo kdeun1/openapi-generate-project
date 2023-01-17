@@ -1,0 +1,46 @@
+{{#withSeparateModelsAndApi}}
+/* tslint:disable */
+/* eslint-disable */
+
+import { apiInstance, PromiseResBody } from '@/common/api';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+{{#imports}}
+// @ts-ignore
+import { {{classname}} } from '{{apiRelativeToRoot}}{{tsModelPackage}}';
+{{/imports}}
+{{/withSeparateModelsAndApi}}
+{{^withSeparateModelsAndApi}}
+{{/withSeparateModelsAndApi}}
+
+{{#operations}}
+  {{#operation}}
+  {{^isDeprecated}}
+const {{nickname}}Axios = ({
+{{#allParams}}
+  {{paramName}},
+{{/allParams}}
+}: {
+{{#allParams}}
+  {{paramName}}{{^required}}?{{/required}}: {{=<% %>=}}<%&dataType%><%={{ }}=%>;
+{{/allParams}}
+}): PromiseResBody<{{{returnType}}}{{^returnType}}void{{/returnType}}> => apiInstance.{{#lambda.lowercase}}{{httpMethod}}{{/lambda.lowercase}}(
+  '{{path}}',
+  {
+    params: {
+{{#allParams}}
+      {{paramName}},
+{{/allParams}}
+    }
+  }
+);
+
+  {{/isDeprecated}}
+  {{/operation}}
+export {
+  {{#operation}}
+  {{^isDeprecated}}
+  {{nickname}}Axios,
+  {{/isDeprecated}}
+  {{/operation}}
+};
+{{/operations}}

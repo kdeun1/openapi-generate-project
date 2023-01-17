@@ -1,0 +1,12 @@
+{
+  "name": "openapi-generator-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "openapi-generator-cli generate --reserved-words-mappings delete=delete -g typescript-axios -i ./input/pet-store.json -o ./generate -t ./mustaches -c ./openapi.json --skip-validate-spec",
+    "template": "openapi-generator-cli author template -g typescript-axios -o ./mustaches"
+  },
+  "author": "",
+  "license": "ISC"
+}
